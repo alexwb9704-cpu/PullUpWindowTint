@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Pull-Up Mobile Window Tinting</title>
+    <meta name="description" content="View our professional window tinting work in Columbia, SC. Quality automotive, commercial, and residential installations.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">PULL-UP MOBILE WINDOW TINTING</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="gallery.html" class="active">GALLERY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2>OUR WORK</h2>
+            <p class="gallery-intro">Check out some of our recent window tinting projects. Quality craftsmanship, professional results.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="images/mustang.jpg" alt="Blue Mustang Window Tinting" loading="lazy">
+                    <div class="gallery-caption">Blue Mustang - Professional Automotive Tint</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="images/accord.jpg" alt="White Honda Accord Window Tinting" loading="lazy">
+                    <div class="gallery-caption">White Honda Accord - Sleek Dark Tint</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="images/f150.jpg" alt="White Ford F-150 Window Tinting" loading="lazy">
+                    <div class="gallery-caption">White Ford F-150 - Truck Window Tinting</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="images/tahoe.jpg" alt="Black Chevrolet Tahoe Window Tinting" loading="lazy">
+                    <div class="gallery-caption">Black Chevrolet Tahoe - SUV Tinting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-prev" onclick="changeLightboxImage(-1)">&#10094;</button>
+        <button class="lightbox-next" onclick="changeLightboxImage(1)">&#10095;</button>
+    </div>
+
+    <!-- Quick Contact CTA -->
+    <section class="quick-contact">
+        <div class="container">
+            <h2>Like What You See?</h2>
+            <p>Get the same professional results for your vehicle, home, or business!</p>
+            <div class="cta-buttons">
+                <a href="tel:8039990448" class="cta-button">CALL NOW: 803-999-0448</a>
+                <a href="contact.html" class="cta-button cta-secondary">REQUEST QUOTE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pull-Up Mobile Window Tinting. All rights reserved.</p>
+            <p>2414 Two Notch Rd, Columbia, SC 29204 | <a href="tel:8039990448">803-999-0448</a></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Pull-Up Mobile Window Tinting</title>
+    <meta name="description" content="Contact Pull-Up Mobile Window Tinting in Columbia, SC. Call 803-999-0448 for a free quote. Open Mon-Sat 9AM-7PM, Sun 12PM-4PM.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">PULL-UP MOBILE WINDOW TINTING</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><a href="contact.html" class="active">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>HOURS & CONTACT</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>CONTACT INFORMATION</h3>
+                    <div class="contact-info">
+                        <p><strong>Phone:</strong><br><a href="tel:8039990448">803-999-0448</a></p>
+                        <p><strong>Email:</strong><br><a href="mailto:pulluptint@gmail.com">pulluptint@gmail.com</a></p>
+                        <p><strong>Location:</strong><br>2414 Two Notch Rd<br>Columbia, SC 29204</p>
+                        <p><a href="https://www.google.com/maps/search/?api=1&query=2414+Two+Notch+Rd+Columbia+SC+29204" target="_blank" rel="noopener">Get Directions →</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>BUSINESS HOURS</h3>
+                    <ul class="hours-list">
+                        <li><span class="day">Monday</span> <span>9 AM – 7 PM</span></li>
+                        <li><span class="day">Tuesday</span> <span>9 AM – 7 PM</span></li>
+                        <li><span class="day">Wednesday</span> <span>9 AM – 7 PM</span></li>
+                        <li><span class="day">Thursday</span> <span>9 AM – 7 PM</span></li>
+                        <li><span class="day">Friday</span> <span>9 AM – 7 PM</span></li>
+                        <li><span class="day">Saturday</span> <span>9 AM – 7 PM</span></li>
+                        <li><span class="day">Sunday</span> <span>12 PM – 4 PM</span></li>
+                    </ul>
+                </div>
+
+                <div class="contact-form">
+                    <h3>REQUEST A QUOTE</h3>
+                    <div class="success-message" id="successMessage">
+                        Thank you! We'll contact you soon.
+                    </div>
+                    <div class="error-message" id="errorMessage">
+                        Please fill in all required fields.
+                    </div>
+                    <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="automotive">Automotive Tinting</option>
+                                <option value="commercial">Commercial Tinting</option>
+                                <option value="residential">Residential Tinting</option>
+                                <option value="other">Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2>FIND US</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.8!2d-81.0!3d34.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDAzJzAwLjAiTiA4McKwMDAnMDAuMCJX!5e0!3m2!1sen!2sus!4v1234567890" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Pull-Up Mobile Window Tinting Location">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pull-Up Mobile Window Tinting. All rights reserved.</p>
+            <p>2414 Two Notch Rd, Columbia, SC 29204 | <a href="tel:8039990448">803-999-0448</a></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
