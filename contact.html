@@ -54,14 +54,16 @@
                 <div class="contact-form">
                     <h3>REQUEST A QUOTE</h3>
                     
-                    <!-- FormSubmit.co Integration -->
-                    <form action="https://formsubmit.co/projectprox34@gmail.com" method="POST">
-                        
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_subject" value="New Window Tinting Quote Request">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="https://yourdomain.com/contact.html?success=true">
-                        <input type="hidden" name="_template" value="table">
+                    <!-- Success/Error Messages -->
+                    <div class="success-message" id="successMessage" style="display: none;">
+                        Thank you! We've received your message and will contact you soon.
+                    </div>
+                    <div class="error-message" id="errorMessage" style="display: none;">
+                        Oops! Something went wrong. Please try calling us instead.
+                    </div>
+                    
+                    <!-- Contact Form with AJAX submission -->
+                    <form id="contactForm">
                         
                         <div class="form-group">
                             <label for="name">Name *</label>
@@ -89,13 +91,8 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                        <button type="submit" class="submit-btn" id="submitBtn">SEND MESSAGE</button>
                     </form>
-                    
-                    <!-- Success message (shown via URL parameter) -->
-                    <div class="success-message" id="formSuccess" style="display: none; margin-top: 1rem;">
-                        Thank you! We've received your message and will contact you soon.
-                    </div>
                 </div>
             </div>
         </div>
@@ -133,15 +130,65 @@
 
     <script src="script.js"></script>
     <script>
-        // Show success message if redirected back with success parameter
-        if (window.location.search.includes('success=true')) {
-            document.getElementById('formSuccess').style.display = 'block';
-            // Remove the parameter from URL after 5 seconds
-            setTimeout(() => {
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }, 5000);
-        }
+        // Contact form submission with AJAX (stays on page)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            const form = this;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'SENDING...';
+            
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Send to FormSubmit using fetch
+            fetch('https://formsubmit.co/ajax/projectprox34@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Show success message
+                successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+                
+                // Reset form
+                form.reset();
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SEND MESSAGE';
+                
+                // Hide success message after 10 seconds
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 10000);
+            })
+            .catch(error => {
+                // Show error message
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SEND MESSAGE';
+                
+                // Hide error message after 10 seconds
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                }, 10000);
+            });
+        });
     </script>
 </body>
 </html>
+
 
