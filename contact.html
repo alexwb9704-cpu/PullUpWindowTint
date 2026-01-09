@@ -53,20 +53,23 @@
 
                 <div class="contact-form">
                     <h3>REQUEST A QUOTE</h3>
-                    <div class="success-message" id="successMessage">
-                        Thank you! We'll contact you soon.
-                    </div>
-                    <div class="error-message" id="errorMessage">
-                        Please fill in all required fields.
-                    </div>
-                    <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+                    
+                    <!-- FormSubmit.co Integration -->
+                    <form action="https://formsubmit.co/proxmox34@gmail.com" method="POST">
+                        
+                        <!-- FormSubmit Configuration -->
+                        <input type="hidden" name="_subject" value="New Window Tinting Quote Request">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/contact.html?success=true">
+                        <input type="hidden" name="_template" value="table">
+                        
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" required>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
@@ -76,10 +79,10 @@
                             <label for="service">Service Type *</label>
                             <select id="service" name="service" required>
                                 <option value="">Select a service...</option>
-                                <option value="automotive">Automotive Tinting</option>
-                                <option value="commercial">Commercial Tinting</option>
-                                <option value="residential">Residential Tinting</option>
-                                <option value="other">Other / Not Sure</option>
+                                <option value="Automotive Tinting">Automotive Tinting</option>
+                                <option value="Commercial Tinting">Commercial Tinting</option>
+                                <option value="Residential Tinting">Residential Tinting</option>
+                                <option value="Other / Not Sure">Other / Not Sure</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -88,6 +91,11 @@
                         </div>
                         <button type="submit" class="submit-btn">SEND MESSAGE</button>
                     </form>
+                    
+                    <!-- Success message (shown via URL parameter) -->
+                    <div class="success-message" id="formSuccess" style="display: none; margin-top: 1rem;">
+                        Thank you! We've received your message and will contact you soon.
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,5 +132,15 @@
     <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
 
     <script src="script.js"></script>
+    <script>
+        // Show success message if redirected back with success parameter
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('formSuccess').style.display = 'block';
+            // Remove the parameter from URL after 5 seconds
+            setTimeout(() => {
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
